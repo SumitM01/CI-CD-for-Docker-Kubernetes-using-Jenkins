@@ -6,7 +6,7 @@ pipeline {
 	}
     environment{
         registry = "dockingsumit/vproappimage"
-        registryCredentials = "dockerhub-id"
+        registryCredential = "dockerhub-id"
     }
     stages{
         stage('Build') {
