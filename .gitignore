@@ -3,3 +3,4 @@ Jenkins-key.pem
 Sonar-key.pem
 git_ssh_key
 git_ssh_key.pub
+vprofile-kops-admin_accessKeys.csv
