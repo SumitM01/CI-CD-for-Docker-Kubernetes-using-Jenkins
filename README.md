@@ -130,15 +130,15 @@ git clone git@github.com:git_username/git_repository_name.git
 ```
 - ***IMPORTANT***: Cloning the repository on the machine validates the authentication using the created SSH keys.
 - Copy the contents of the vprofile-project/cicd-kube branch.
-    - Clone the vprofile-project repo onto the kops machine.
+- Clone the vprofile-project repo onto the kops machine.
 ```bash
 git clone https://github.com/devopshydclub/vprofile-project.git
 ```
-    - Checkout to cicd-kube branch.
+- Checkout to cicd-kube branch.
 ```bash
 git checkout cicd-kube
 ```
-    - Copy all the files in the root to the created repository folder.
+- Copy all the files in the root to the created repository folder.
 ```bash
 cp -r * ../your_created_repo/ 
 ```
