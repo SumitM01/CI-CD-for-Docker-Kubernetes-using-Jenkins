@@ -9,21 +9,22 @@ To address this, the project aims to **automate the build and release process** 
 
 ## Services used
 <div width="50%">
-<img src="https://logowik.com/content/uploads/images/jenkins8460.jpg" height="40px" alt="Jenkins">
-<img src="https://1.bp.blogspot.com/-zYP58acwgq8/X_2nBaX8ESI/AAAAAAAAAIg/T8Jzb-Pfr00_9rIYpaa6DECiNHmg6S-sgCLcBGAsYHQ/s320/sonarqube-logo-square-small.png" height="40px" alt="Sonarqube Scanner">
-<img src="https://logowik.com/content/uploads/images/maven-apache3537.jpg" height="40px" alt="Maven">
-<img src="https://logowik.com/content/uploads/images/301_docker.jpg" height="40px" alt="Docker">
-<img src="https://logowik.com/content/uploads/images/kubernetes5574.jpg" height="40px" alt="Kubernetes">
-<img src="https://logowik.com/content/uploads/images/helm6256.jpg" height="40px" alt="Helm">
-<img src="https://seeklogo.com/images/A/aws-ec2-elastic-compute-cloud-logo-2F9E73DBA5-seeklogo.com.png" height="40px" alt="AWS EC2">
-<img src="https://logowik.com/content/uploads/images/amazon-s37765.jpg" height="40px" alt="AWS S3">
-<img src="https://seeklogo.com/images/A/aws-route-53-logo-EEB0D14819-seeklogo.com.png" height="40px" alt="AWS Route53">
-<img src="https://seeklogo.com/images/A/aws-elastic-load-balancing-logo-73F2ABF601-seeklogo.com.png" height="40px" alt="AWS ELB">
-<img src="https://seeklogo.com/images/A/aws-iam-identity-and-access-management-logo-99B1CACF5A-seeklogo.com.png" height="40px" alt="AWS IAM">
-<img src="https://seeklogo.com/images/G/github-logo-5F384D0265-seeklogo.com.png" height="40px" alt="Github">
+<img src="https://logowik.com/content/uploads/images/jenkins8460.jpg" height="80px" alt="Jenkins">
+<img src="https://1.bp.blogspot.com/-zYP58acwgq8/X_2nBaX8ESI/AAAAAAAAAIg/T8Jzb-Pfr00_9rIYpaa6DECiNHmg6S-sgCLcBGAsYHQ/s320/sonarqube-logo-square-small.png" height="80px" alt="Sonarqube Scanner">
+<img src="https://logowik.com/content/uploads/images/maven-apache3537.jpg" height="80px" alt="Maven">
+<img src="https://logowik.com/content/uploads/images/301_docker.jpg" height="80px" alt="Docker">
+<img src="https://logowik.com/content/uploads/images/kubernetes5574.jpg" height="80px" alt="Kubernetes">
+<img src="https://logowik.com/content/uploads/images/helm6256.jpg" height="80px" alt="Helm">
+<img src="https://seeklogo.com/images/A/aws-ec2-elastic-compute-cloud-logo-2F9E73DBA5-seeklogo.com.png" height="80px" alt="AWS EC2">
+<img src="https://logowik.com/content/uploads/images/amazon-s37765.jpg" height="80px" alt="AWS S3">
+<img src="https://seeklogo.com/images/A/aws-route-53-logo-EEB0D14819-seeklogo.com.png" height="80px" alt="AWS Route53">
+<img src="https://seeklogo.com/images/A/aws-elastic-load-balancing-logo-73F2ABF601-seeklogo.com.png" height="80px" alt="AWS ELB">
+<img src="https://seeklogo.com/images/A/aws-iam-identity-and-access-management-logo-99B1CACF5A-seeklogo.com.png" height="80px" alt="AWS IAM">
+<img src="https://seeklogo.com/images/G/github-logo-5F384D0265-seeklogo.com.png" height="80px" alt="Github">
 </div>
 
 ## Project Architecture
+![Project-Arch](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/a6a14622-d690-4e9c-a6f7-7c320144a188)
 
 The following events happen serially as depicted by the image:
 - A developer makes a code change and pushes it to GitHub.
@@ -43,16 +44,24 @@ Follow the README.md file in https://github.com/SumitM01/CI-using-Jenkins--Nexus
 
 ### Setup Jenkins server
 - Install these additional plugins on Jenkins.
-    - Docker pipeline
-    - 
+    - Docker pipeline 
 - Log in to jenkins instance using SSH and install openjdk-11-jdk and openjdk-8-jdk using the following commands
 ```bash
 sudo apt update
 sudo apt install openjdk-8-jdk -y
 sudo apt install openjdk-11-jdk -y
 ```
+![configure-jenkins-maven](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/884b5ddd-6ed8-48fa-a9b3-fc41e48b7d2a)
+![configure-jenkins-credentials](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/e2d2e75f-a17f-4fb6-b619-dad633323ef3)
+
 - Configure JDK installation on Jenkins by providing Java_Home path.
+![configure-jenkins-jdk-8](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/7c0cc15a-5a01-4476-8fca-0cea82c00356)
+![configure-jenkins-jdk-11](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/54c88bc9-9d57-4143-b480-9365e66dc497)
+
 - Configure Sonarqube scanner and sonarqube server with sonarqube token
+![configure-jenkins-sonarqube-scanner](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/3d6dc20b-274d-4864-9f7c-c31d535d671e)
+![configure-jenkins-system-sonarqube-server](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/74f8b9b9-d0dc-42ca-864c-e9a55e6dd44f)
+
 - SSH to the instance and install docker engine in it using the following commands.
 ```bash
 #!/bin/bash
@@ -122,6 +131,7 @@ apt install awscli -y
 ### Configure SSH key login to github remote:
 - Generate the ssh keys on the kops server using ssh-keygen
 - Go to account settings -> SSH and GPG keys -> add key -> paste the contents of the public ssh key -> save
+![git-ssh-keys-created](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/65b17e78-dde6-4bba-9360-b2d28b0181a2)
 
 ### Create a separate repository for the project:
 - Clone the created repo into your kops machine using SSH link.
@@ -199,6 +209,7 @@ tar -zxvf helm-v3.12.2-linux-amd64.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
 helm --help
 ```
+![Installing-helm](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/5979710e-aba6-4847-902f-5a86e561bb8c)
 
 ### Check health of the cluster using kops:
 - Run the following command to validate the created cluster using kOps:
@@ -258,6 +269,8 @@ sudo chown ubuntu.ubuntu /opt/jenkins-slave
     - Choose Pipeline script from SCM and provide your github repository, branch and Jenkinsfile path then save.
     - Now commit to the repository then see that the pipeline gets automatically triggered after the commit.
     - Wait for the pipeline to be completed successfully.
+![Pipeline-success](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/89887083-1ba6-4395-8515-267371ead5c6)
+
 
 - After the successful completion of the pipeline do the following
 ### Create a Route53 record 
