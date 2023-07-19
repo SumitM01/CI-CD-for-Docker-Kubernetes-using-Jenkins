@@ -24,9 +24,7 @@ To address this, the project aims to automate the build and release process of c
 </div>
 
 ## Project Architecture
-![Project-Arch](https://github.com/SumitM01/CI-CD-for-Docker-Kubernetes-using-Jenkins/assets/65524561/a6a14622-d690-4e9c-a6f7-7c320144a188)
-
-The following events happen serially as depicted by the image 📊:
+The following events happen serially:
 
 - A developer makes a code change and pushes it to GitHub 💻.
 - Jenkins fetches the code, including the Dockerfile, Jenkinsfile, and Helm charts 📥.
